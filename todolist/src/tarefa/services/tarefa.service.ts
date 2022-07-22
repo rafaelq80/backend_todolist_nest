@@ -28,4 +28,11 @@ export class TarefaService {
         return tarefa;
     }
 
+    async findByNome(nome: string): Promise<Tarefa[]> {
+        return await this.tarefaRepository.find({
+            where: {
+                nome: ILike(`%${nome}%`),
+            }
+        })
+    }
 }

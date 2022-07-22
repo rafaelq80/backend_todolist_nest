@@ -17,5 +17,11 @@ export class TarefaController {
   findById(@Param('id', ParseIntPipe) id: number): Promise<Tarefa> {
     return this.tarefaService.findById(id);
   }
-  
+    
+  @Get('/nome/:nome')
+  @HttpCode(HttpStatus.OK)
+  findByTitulo(@Param('nome') nome: string): Promise<Tarefa[]> {
+    return this.tarefaService.findByNome(nome);
+  }
+
 }
