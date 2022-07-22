@@ -15,4 +15,17 @@ export class TarefaService {
         return await this.tarefaRepository.find();
     }
 
+    async findById(id: number): Promise<Tarefa> {
+        let tarefa = await this.tarefaRepository.findOne({
+            where: {
+                id
+            }
+        });
+
+        if (!tarefa)
+            throw new HttpException('Tarefa não existe', HttpStatus.NOT_FOUND);
+
+        return tarefa;
+    }
+
 }
