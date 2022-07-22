@@ -1,3 +1,4 @@
+import { TarefaModule } from './tarefa/tarefa.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Tarefa } from './tarefa/entities/tarefa.entity';
@@ -13,7 +14,8 @@ import { Tarefa } from './tarefa/entities/tarefa.entity';
       database: 'db_todolist',
       entities: [ Tarefa ],
       synchronize: true,
-    })
+    }),
+    TarefaModule
   ],
   controllers: [],
   providers: [],
