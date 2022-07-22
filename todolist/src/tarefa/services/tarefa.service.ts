@@ -1,6 +1,6 @@
-import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { DeleteResult, ILike, Repository } from "typeorm";
+import { Repository } from "typeorm";
 import { Tarefa } from "../entities/tarefa.entity";
 
 @Injectable()
@@ -16,3 +16,4 @@ export class TarefaService {
     }
 
 }
+
