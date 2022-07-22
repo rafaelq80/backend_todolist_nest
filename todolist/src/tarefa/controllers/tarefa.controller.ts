@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
 import { Tarefa } from "../entities/tarefa.entity";
 import { TarefaService } from "../services/tarefa.service";
 
@@ -34,6 +34,13 @@ export class TarefaController {
   @HttpCode(HttpStatus.OK)
   update(@Body() tarefa: Tarefa): Promise<Tarefa> {
     return this.tarefaService.update(tarefa);
+  }
+  
+  @Delete('/:id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  delete(@Param('id', ParseIntPipe) id: number) {
+    const resultadoDelete = this.tarefaService.delete(id);
+    return resultadoDelete;
   }
   
 }
