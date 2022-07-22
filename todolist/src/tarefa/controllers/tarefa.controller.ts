@@ -1,4 +1,4 @@
-import { Controller, Get, HttpCode, HttpStatus, Param, ParseIntPipe } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
 import { Tarefa } from "../entities/tarefa.entity";
 import { TarefaService } from "../services/tarefa.service";
 
@@ -24,4 +24,16 @@ export class TarefaController {
     return this.tarefaService.findByNome(nome);
   }
 
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  create(@Body() tarefa: Tarefa): Promise<Tarefa> {
+    return this.tarefaService.create(tarefa);
+  }
+
+  @Put()
+  @HttpCode(HttpStatus.OK)
+  update(@Body() tarefa: Tarefa): Promise<Tarefa> {
+    return this.tarefaService.update(tarefa);
+  }
+  
 }

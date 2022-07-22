@@ -35,4 +35,18 @@ export class TarefaService {
             }
         })
     }
+
+    async create(tarefa: Tarefa): Promise<Tarefa> {
+        return await this.tarefaRepository.save(tarefa);
+    }
+
+    async update(tarefa: Tarefa): Promise<Tarefa> {
+        let tarefaUpdate = await this.findById(tarefa.id);
+
+        if (!tarefaUpdate || !tarefa.id)
+            throw new HttpException('Tarefa não encontrada!', HttpStatus.NOT_FOUND);
+
+        return await this.tarefaRepository.save(tarefa);
+    }
+    
 }
