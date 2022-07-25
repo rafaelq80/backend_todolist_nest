@@ -1,9 +1,9 @@
-import { Categoria } from './categoria/entities/categoria.entity';
-import { CategoriaModule } from './categoria/categoria.module';
-import { TarefaModule } from './tarefa/tarefa.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CategoriaModule } from './categoria/categoria.module';
+import { Categoria } from './categoria/entities/categoria.entity';
 import { Tarefa } from './tarefa/entities/tarefa.entity';
+import { TarefaModule } from './tarefa/tarefa.module';
 
 @Module({
   imports: [
