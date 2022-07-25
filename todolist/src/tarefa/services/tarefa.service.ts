@@ -41,9 +41,9 @@ export class TarefaService {
     }
 
     async update(tarefa: Tarefa): Promise<Tarefa> {
-        let tarefaUpdate = await this.findById(tarefa.id);
+        let buscaTarefa = await this.findById(tarefa.id);
 
-        if (!tarefaUpdate || !tarefa.id)
+        if (!buscaTarefa || !tarefa.id)
             throw new HttpException('Tarefa não encontrada!', HttpStatus.NOT_FOUND);
 
         return await this.tarefaRepository.save(tarefa);
