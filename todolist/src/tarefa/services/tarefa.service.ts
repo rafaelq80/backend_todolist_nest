@@ -23,7 +23,7 @@ export class TarefaService {
         });
 
         if (!tarefa)
-            throw new HttpException('Tarefa não existe', HttpStatus.NOT_FOUND);
+            throw new HttpException('Tarefa não encontrada!', HttpStatus.NOT_FOUND);
 
         return tarefa;
     }
