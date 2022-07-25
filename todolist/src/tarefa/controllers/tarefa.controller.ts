@@ -20,7 +20,7 @@ export class TarefaController {
     
   @Get('/nome/:nome')
   @HttpCode(HttpStatus.OK)
-  findByTitulo(@Param('nome') nome: string): Promise<Tarefa[]> {
+  findByNome(@Param('nome') nome: string): Promise<Tarefa[]> {
     return this.tarefaService.findByNome(nome);
   }
 
