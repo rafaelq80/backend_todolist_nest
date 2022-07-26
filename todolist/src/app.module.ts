@@ -1,3 +1,4 @@
+import { AppController } from './app.controller';
 import { Categoria } from './categoria/entities/categoria.entity';
 import { CategoriaModule } from './categoria/categoria.module';
 import { TarefaModule } from './tarefa/tarefa.module';
@@ -20,7 +21,7 @@ import { Tarefa } from './tarefa/entities/tarefa.entity';
     TarefaModule,
     CategoriaModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
