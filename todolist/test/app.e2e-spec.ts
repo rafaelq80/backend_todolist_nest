@@ -79,7 +79,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
   });
 
   it('04 - Não Deve Atualizar uma Tarefa com Id inválido', async () => {
-    const resposta = await request(app.getHttpServer())
+    return await request(app.getHttpServer())
       .put('/tarefas')
       .send({
         id: 10000,
