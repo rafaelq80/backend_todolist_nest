@@ -36,6 +36,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
     await app.close();
   });
 
+ 
   it('01 - Deve Cadastrar uma Tarefa', async () => {
     const resposta = await request(app.getHttpServer())
       .post('/tarefas')
@@ -61,7 +62,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
   });
 
   it('03 - Deve Atualizar uma Tarefa', async () => {
-    const resposta = await request(app.getHttpServer())
+    return await request(app.getHttpServer())
       .put('/tarefas')
       .send({
         id: tarefaId,
@@ -72,6 +73,9 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
         status: false
       })
       .expect(200)
+      .then(resposta => {
+        expect ("Primeira tarefa - Atualizada!").toEqual(resposta.body.nome)
+      });
   });
 
   it('04 - Não Deve Atualizar uma Tarefa com Id inválido', async () => {
