@@ -42,7 +42,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
       .send({
         nome: 'Primeira tarefa',
         descricao: 'Minha primeira tarefa do dia',
-        responsavel: 'Henrique',
+        responsavel: 'Responsável 01',
         data: '2022-07-15',
         status: true
       });
@@ -67,7 +67,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
         id: tarefaId,
         nome: 'Primeira tarefa - Atualizada!',
         descricao: 'Minha primeira tarefa do dia - Atualizada!',
-        responsavel: 'Henrique Felipe',
+        responsavel: 'Responsável 02',
         data: '2022-08-15',
         status: false
       })
@@ -81,7 +81,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
         id: 10000,
         nome: 'Primeira tarefa - Atualizada!',
         descricao: 'Minha primeira tarefa do dia - Atualizada!',
-        responsavel: 'Henrique Felipe',
+        responsavel: 'Responsável 02',
         data: '2022-08-15',
         status: false
       })
