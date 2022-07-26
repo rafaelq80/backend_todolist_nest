@@ -8,7 +8,7 @@ import { Tarefa } from './tarefa/entities/tarefa.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
+    /*TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
@@ -17,6 +17,17 @@ import { Tarefa } from './tarefa/entities/tarefa.entity';
       database: 'db_todolist',
       entities: [ Tarefa, Categoria ],
       synchronize: true,
+    }),*/
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      logging: false,
+      dropSchema: false,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+      synchronize: true,
+      autoLoadEntities: true,
     }),
     TarefaModule,
     CategoriaModule
