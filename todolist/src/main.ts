@@ -11,7 +11,6 @@ async function bootstrap() {
   .setDescription('Projeto Todo List')
   .setContact("Generation Brasil","http://www.generationbrasil.online","generation@email.com")
   .setVersion('1.0')
-  .addBearerAuth()
   .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/swagger', app, document);
