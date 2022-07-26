@@ -12,18 +12,25 @@ export class TarefaService {
     ) { }
 
     async findAll(): Promise<Tarefa[]> {
-        return await this.tarefaRepository.find();
+        return await this.tarefaRepository.find({
+            relations: {
+                categoria: true
+            }
+        });
     }
 
     async findById(id: number): Promise<Tarefa> {
         let tarefa = await this.tarefaRepository.findOne({
             where: {
                 id
+            },
+            relations: {
+                categoria: true
             }
         });
 
         if (!tarefa)
-            throw new HttpException('Tarefa não existe', HttpStatus.NOT_FOUND);
+            throw new HttpException('Tarefa não encontrada!', HttpStatus.NOT_FOUND);
 
         return tarefa;
     }
@@ -32,6 +39,9 @@ export class TarefaService {
         return await this.tarefaRepository.find({
             where: {
                 nome: ILike(`%${nome}%`),
+            },
+            relations: {
+                categoria: true
             }
         })
     }
@@ -41,9 +51,9 @@ export class TarefaService {
     }
 
     async update(tarefa: Tarefa): Promise<Tarefa> {
-        let tarefaUpdate = await this.findById(tarefa.id);
+        let buscaTarefa = await this.findById(tarefa.id);
 
-        if (!tarefaUpdate || !tarefa.id)
+        if (!buscaTarefa || !tarefa.id)
             throw new HttpException('Tarefa não encontrada!', HttpStatus.NOT_FOUND);
 
         return await this.tarefaRepository.save(tarefa);

@@ -39,7 +39,6 @@ export class CategoriaController {
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
   delete(@Param('id', ParseIntPipe) id: number) {
-    const resultadoDelete = this.categoriaService.delete(id);
-    return resultadoDelete;
+    return this.categoriaService.delete(id);
   }
 }
