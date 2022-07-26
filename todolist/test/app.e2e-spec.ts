@@ -36,7 +36,7 @@ describe('Testes do Módulo Tarefa (e2e)', () => {
     await app.close();
   });
 
-  it('01 - Deve Cadastrar Tarefa', async () => {
+  it('01 - Deve Cadastrar uma Tarefa', async () => {
     const resposta = await request(app.getHttpServer())
       .post('/tarefas')
       .send({
