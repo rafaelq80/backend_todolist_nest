@@ -1,4 +1,4 @@
-# Projeto Todo-List - Mobile (Em desenvolvimento)
+# Projeto Todo-List - Mobile
 
 <br />
 
